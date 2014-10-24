@@ -20,6 +20,8 @@ from werkzeug.datastructures import ImmutableList
 from werkzeug.local import LocalProxy
 from werkzeug.security import safe_str_cmp
 
+from flask.ext.babel import lazy_gettext
+
 from .utils import config_value as cv, get_config, md5, url_for_security, string_types
 from .views import create_blueprint
 from .forms import LoginForm, ConfirmRegisterForm, RegisterForm, \
@@ -105,73 +107,73 @@ _default_config = {
 #: Default Flask-Security messages
 _default_messages = {
     'UNAUTHORIZED': (
-        'You do not have permission to view this resource.', 'error'),
+        lazy_gettext('You do not have permission to view this resource.'), 'error'),
     'CONFIRM_REGISTRATION': (
-        'Thank you. Confirmation instructions have been sent to %(email)s.', 'success'),
+        lazy_gettext('Thank you. Confirmation instructions have been sent to %(email)s.'), 'success'),
     'EMAIL_CONFIRMED': (
-        'Thank you. Your email has been confirmed.', 'success'),
+        lazy_gettext('Thank you. Your email has been confirmed.'), 'success'),
     'ALREADY_CONFIRMED': (
-        'Your email has already been confirmed.', 'info'),
+        lazy_gettext('Your email has already been confirmed.'), 'info'),
     'INVALID_CONFIRMATION_TOKEN': (
-        'Invalid confirmation token.', 'error'),
+        lazy_gettext('Invalid confirmation token.'), 'error'),
     'EMAIL_ALREADY_ASSOCIATED': (
-        '%(email)s is already associated with an account.', 'error'),
+        lazy_gettext('%(email)s is already associated with an account.'), 'error'),
     'PASSWORD_MISMATCH': (
-        'Password does not match', 'error'),
+        lazy_gettext('Password does not match'), 'error'),
     'RETYPE_PASSWORD_MISMATCH': (
-        'Passwords do not match', 'error'),
+        lazy_gettext('Passwords do not match'), 'error'),
     'INVALID_REDIRECT': (
-        'Redirections outside the domain are forbidden', 'error'),
+        lazy_gettext('Redirections outside the domain are forbidden'), 'error'),
     'PASSWORD_RESET_REQUEST': (
-        'Instructions to reset your password have been sent to %(email)s.', 'info'),
+        lazy_gettext('Instructions to reset your password have been sent to %(email)s.'), 'info'),
     'PASSWORD_RESET_EXPIRED': (
-        'You did not reset your password within %(within)s. New instructions have been sent '
-        'to %(email)s.', 'error'),
+        lazy_gettext('You did not reset your password within %(within)s. New instructions have been sent '
+        'to %(email)s.'), 'error'),
     'INVALID_RESET_PASSWORD_TOKEN': (
-        'Invalid reset password token.', 'error'),
+        lazy_gettext('Invalid reset password token.'), 'error'),
     'CONFIRMATION_REQUIRED': (
-        'Email requires confirmation.', 'error'),
+        lazy_gettext('Email requires confirmation.'), 'error'),
     'CONFIRMATION_REQUEST': (
-        'Confirmation instructions have been sent to %(email)s.', 'info'),
+        lazy_gettext('Confirmation instructions have been sent to %(email)s.'), 'info'),
     'CONFIRMATION_EXPIRED': (
-        'You did not confirm your email within %(within)s. New instructions to confirm your email '
-        'have been sent to %(email)s.', 'error'),
+        lazy_gettext('You did not confirm your email within %(within)s. New instructions to confirm your email '
+        'have been sent to %(email)s.'), 'error'),
     'LOGIN_EXPIRED': (
-        'You did not login within %(within)s. New instructions to login have been sent to '
-        '%(email)s.', 'error'),
+        lazy_gettext('You did not login within %(within)s. New instructions to login have been sent to '
+        '%(email)s.'), 'error'),
     'LOGIN_EMAIL_SENT': (
-        'Instructions to login have been sent to %(email)s.', 'success'),
+        lazy_gettext('Instructions to login have been sent to %(email)s.'), 'success'),
     'INVALID_LOGIN_TOKEN': (
-        'Invalid login token.', 'error'),
+        lazy_gettext('Invalid login token.'), 'error'),
     'DISABLED_ACCOUNT': (
-        'Account is disabled.', 'error'),
+        lazy_gettext('Account is disabled.'), 'error'),
     'EMAIL_NOT_PROVIDED': (
-        'Email not provided', 'error'),
+        lazy_gettext('Email not provided'), 'error'),
     'INVALID_EMAIL_ADDRESS': (
-        'Invalid email address', 'error'),
+        lazy_gettext('Invalid email address'), 'error'),
     'PASSWORD_NOT_PROVIDED': (
-        'Password not provided', 'error'),
+        lazy_gettext('Password not provided'), 'error'),
     'PASSWORD_NOT_SET': (
-        'No password is set for this user', 'error'),
+        lazy_gettext('No password is set for this user'), 'error'),
     'PASSWORD_INVALID_LENGTH': (
-        'Password must be at least 6 characters', 'error'),
+        lazy_gettext('Password must be at least 6 characters'), 'error'),
     'USER_DOES_NOT_EXIST': (
-        'Specified user does not exist', 'error'),
+        lazy_gettext('Specified user does not exist'), 'error'),
     'INVALID_PASSWORD': (
-        'Invalid password', 'error'),
+        lazy_gettext('Invalid password'), 'error'),
     'PASSWORDLESS_LOGIN_SUCCESSFUL': (
-        'You have successfuly logged in.', 'success'),
+        lazy_gettext('You have successfuly logged in.'), 'success'),
     'PASSWORD_RESET': (
-        'You successfully reset your password and you have been logged in automatically.',
+        lazy_gettext('You successfully reset your password and you have been logged in automatically.'),
         'success'),
     'PASSWORD_IS_THE_SAME': (
-        'Your new password must be different than your previous password.', 'error'),
+        lazy_gettext('Your new password must be different than your previous password.'), 'error'),
     'PASSWORD_CHANGE': (
-        'You successfully changed your password.', 'success'),
+        lazy_gettext('You successfully changed your password.'), 'success'),
     'LOGIN': (
-        'Please log in to access this page.', 'info'),
+        lazy_gettext('Please log in to access this page.'), 'info'),
     'REFRESH': (
-        'Please reauthenticate to access this page.', 'info'),
+        lazy_gettext('Please reauthenticate to access this page.'), 'info'),
 }
 
 _default_forms = {

@@ -18,6 +18,8 @@ from wtforms import TextField, PasswordField, validators, \
 from flask_login import current_user
 from werkzeug.local import LocalProxy
 
+from flask.ext.babel import lazy_gettext
+
 from .confirmable import requires_confirmation
 from .utils import verify_and_update_password, get_message, config_value, validate_redirect_url
 
@@ -25,19 +27,19 @@ from .utils import verify_and_update_password, get_message, config_value, valida
 _datastore = LocalProxy(lambda: current_app.extensions['security'].datastore)
 
 _default_field_labels = {
-    'email': 'Email Address',
-    'password': 'Password',
-    'remember_me': 'Remember Me',
-    'login': 'Login',
-    'retype_password': 'Retype Password',
-    'register': 'Register',
-    'send_confirmation': 'Resend Confirmation Instructions',
-    'recover_password': 'Recover Password',
-    'reset_password': 'Reset Password',
-    'retype_password': 'Retype Password',
-    'new_password': 'New Password',
-    'change_password': 'Change Password',
-    'send_login_link': 'Send Login Link'
+    'email': lazy_gettext('Email Address'),
+    'password': lazy_gettext('Password'),
+    'remember_me': lazy_gettext('Remember Me'),
+    'login': lazy_gettext('Login'),
+    'retype_password': lazy_gettext('Retype Password'),
+    'register': lazy_gettext('Register'),
+    'send_confirmation': lazy_gettext('Resend Confirmation Instructions'),
+    'recover_password': lazy_gettext('Recover Password'),
+    'reset_password': lazy_gettext('Reset Password'),
+    'retype_password': lazy_gettext('Retype Password'),
+    'new_password': lazy_gettext('New Password'),
+    'change_password': lazy_gettext('Change Password'),
+    'send_login_link': lazy_gettext('Send Login Link')
 }
 
 
